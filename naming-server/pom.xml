@@ -11,11 +11,11 @@
 		<relativePath />
 	</parent>
 
-	<groupId>com.billa.micro.config</groupId>
-	<artifactId>cloud-config-server</artifactId>
+	<groupId>com.billa.micro.registry</groupId>
+	<artifactId>service-registry</artifactId>
 	<version>1.0</version>
-	<name>cloud-config-server</name>
-	<description>cloud-config-server</description>
+	<name>service-registry</name>
+	<description>service-registry</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -25,11 +25,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>

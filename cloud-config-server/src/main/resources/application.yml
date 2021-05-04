@@ -8,8 +8,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/SreenuBilla9/ConfigServer
+          uri: file://C:\Users\Admin\Documents\GitHub\ConfigServer
           clone-on-start: true
-          
-          
-          

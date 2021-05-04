@@ -1,0 +1,6 @@
+server:
+  port: 9052
+
+spring:
+  application:
+    name: ACCOUNT-SERVICE

@@ -1,31 +1,43 @@
 server:
   port: 9191
 
+
+debug: true
+
+
 spring:
-   application:
-      name: API-GATEWAY
-   cloud:
-     gateway:
-        routes:
-           - id: USERS-SERVICE
-             uri: lb://USERS-SERVICE
-             predicates:
-                 - Path=/UsersService/users/**
-             filters:
-                - name: CircuitBreaker
-                  args:
-                    name: USERS-SERVICE
-                    fallbackuri: forward:/userServiceFBM
-             
-           - id: ORDERS-SERVICE
-             uri: lb://ORDERS-SERVICE
-             predicates:
-                 - Path=/OrdersService/orders/**
-             filters:
-                - name: CircuitBreaker
-                  args:
-                    name: ORDERS-SERVICE
-                    fallbackuri: forward:/ordersServiceFBM
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customers/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: CUSTOMER-SERVICE
+                fallbackuri: forward:/csFallback
+        - id: ACCOUNT-SERVICE
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/accounts/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: ACCOUNT-SERVICE
+                fallbackuri: forward:/asFallback
+        - id: TRANSACTION-SERVICE
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/transactions/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: TRANSACTION-SERVICE
+                fallbackuri: forward:/generalFallback
 
 
 hystrix:
